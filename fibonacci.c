@@ -2,23 +2,28 @@
 //Vinicius Oliveira Melo #10845061
 
 //Encontrar o nsimo valor da sequencia de Fibonacci
-//Primeiramente, atraves de uma estrutura de repetiçao for
+//Em seguida, atraves do metodo recursivo
 
-int main(void){
-  int valor1 = 0, valor2 = 1, a,b=1;
-  printf("Digite um valor\n");
-
-  scanf("%d",&a);
-  for(int i = 0;i <= a-1; i++){
-    if(a-1 < 0){
-      b = 0;
-      break;
-    }
-    valor1 = valor2;
-    valor2 = b;
-    b = valor1+valor2;
+int fibonacci(int n){
+  int valor;
+  if(n <= 0){
+    valor = 0;
+  }
+  if(n == 1){
+    valor = 1;
+  }
+  if(n>1){
+    valor = fibonacci(n-1)+fibonacci(n-2);
+   }
+  return valor;
   }
 
-  printf("O %d-esimo valor da sequencia, atraves do for, vale %d",a,valor1);
+int main(void){
+  int a,b;
+  printf("Digite um valor\n");
+  scanf("%d",&a);
+  b = fibonacci(a);
+  printf("O %d-esimo valor da sequencia, atraves do metodo recursivo, vale %d",a,b);
   return 0;
+
 }
