@@ -2,7 +2,7 @@
 //Vinicius Oliveira Melo #10845061
 
 //Encontrar o nsimo valor da sequencia de Fibonacci
-//Em seguida, atraves do metodo recursivo
+//Em seguida, de acordo com o metodo escolhido
 
 int fibonacci(int n){
   int valor;
@@ -19,11 +19,32 @@ int fibonacci(int n){
   }
 
 int main(void){
-  int a,b;
+  int escolha,posicao, valorf,valor1 = 0,valor2 = 1;
+  printf ("Escolha metodo recursivo (1) ou laço de repetiçao for (2)\n");
+  scanf("%d",&escolha);
+
   printf("Digite um valor\n");
-  scanf("%d",&a);
-  b = fibonacci(a);
-  printf("O %d-esimo valor da sequencia, atraves do metodo recursivo, vale %d",a,b);
+  scanf("%d",&posicao);
+
+  if(escolha == 1){
+    valorf = fibonacci(posicao);
+  }
+
+  if(escolha == 2){
+    for(int i = 0;i < posicao; i++){
+      if(posicao <= 0){
+        valorf = 0;
+      }
+      else{
+        valorf = valor1;
+        valor1 = valor2;
+        valor2 = valor1 + valorf;
+      }
+    }
+    valorf = valor1;
+  }
+
+  printf("O %d-esimo valor da sequencia vale %d",posicao,valorf);
   return 0;
 
 }
